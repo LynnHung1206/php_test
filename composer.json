@@ -1,0 +1,19 @@
+{
+    "name": "lynn/test",
+    "description": "for practice",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Lynn\\Test\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lynn",
+            "email": "lynn990908@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
