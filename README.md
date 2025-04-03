@@ -49,6 +49,9 @@ php artisan serve # 啟動 laravel 內建 server
 - view
   - 除了上述外，到 resources/views 建立 xxx.blade.php
   - 此處的名稱會和 view('xxx',['name' => $name]) 的 xxx 對應
+### 錯誤處理
+- 錯誤處理在 [Handler.php](test_app/app/Exceptions/Handler.php)
+- 參數失敗預設會 redirect 回首頁，且 status code default 422
 ---
 ## redis & mariadb
 - 建立 docker-compose.yml 直接拉起來即可
