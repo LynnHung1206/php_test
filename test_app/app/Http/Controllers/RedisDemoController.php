@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redis;
+use App\Utils\CacheUtil;
+use Illuminate\Support\Facades\Log;
 
 class RedisDemoController extends Controller
 {
     public function index(Request $request)
     {
         $key = "hi";
-        Redis::set($key, 'hihihi');
-        $value = Redis::get($key);
+        CacheUtil::set($key, "hihihi", 10);
+//        sleep(11); 測試ttl作用
+        $value = CacheUtil::get($key, "nothing");
         return response()->json([
             'message' => 'Counter updated',
             'counter' => $value
