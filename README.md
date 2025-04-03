@@ -53,6 +53,37 @@ php artisan serve # 啟動 laravel 內建 server
 - 類似 Java 的 filter
 - 需要在 [Kernel.php](test_app/app/Http/Kernel.php) 中註冊
 - 以及在 routes/api.php 中使用
+### Model建立 & Repository
+  - 建立 model
+    - 下指令後會在 app/Models 中
+    - ```bash 
+      php artisan make:model XXXModel
+      ```
+    - ```php
+      class MyCustomModel extends Model
+      {
+          protected $table = 'your_table_name'; // 如果不是符合 Laravel 命名慣例就一定要指定
+
+          protected $fillable = ['欄位1', '欄位2', ...]; // 建議列出你要寫入的欄位
+      }
+      ```  
+  - 建立  repository
+  - ```php
+      class MyCustomRepository
+        {
+        public function getAll()
+        {
+        return MyCustomModel::all();
+        }
+        
+            public function getById($id)
+            {
+                return MyCustomModel::find($id);
+            }
+        
+            // 其他 create/update/delete 方法
+        }
+    ```
 ---
 ## redis & mariadb
 - 建立 docker-compose.yml 直接拉起來即可
@@ -78,6 +109,20 @@ php artisan serve # 啟動 laravel 內建 server
   REDIS_CLIENT=predis
   ```
 - redis 包成一包 util 比較好操作詳看 [CacheUtil](test_app/app/Utils/CacheUtil.php)
+
+#### Mariadb 注意事項
+- 設定 ENGINE、CHARSET 與 COLLATE 可確保資料表使用支援交易的 InnoDB 引擎，
+- 並正確處理多語言與 emoji（utf8mb4），以及統一字串比對與排序邏輯（utf8mb4_unicode_ci）。
+- 可以在建立資料庫時指定這些參數，或在資料庫建立後使用 ALTER DATABASE 語句進行修改。
+```sql
+ALTER DATABASE mydb
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+SHOW VARIABLES LIKE 'character_set_server';
+SHOW VARIABLES LIKE 'collation_server';
+SHOW VARIABLES LIKE 'default_storage_engine';
+```
 ---
 ## local 開發小技巧 自增命令
 ```bash
@@ -110,3 +155,10 @@ composer init
 - beta：允許穩定和測試版的套件。適合測試環境。
 - alpha：允許穩定、測試版和開發版的套件。適合開發環境。
 - dev：允許所有版本的套件，包括開發中的版本。適合開發環境。
+---
+#### for test
+```json
+Content-Type: application/json
+Accept: application/json
+Authorization:eyJ1aWQiOjEyMywibmFtZSI6Ikx5bm4ifQ==
+```
