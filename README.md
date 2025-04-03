@@ -1,8 +1,16 @@
 # Start php Test
+---
+- [composer](#composer-)
+- [Laravel](#laravel)
+- [redis & mariadb](#redis--mariadb)
+- [local 開發小技巧 自增命令](#local-開發小技巧-自增命令)
+- [元Java開發者小提醒（自己）](#元java開發者小提醒自己)
+---
 
 ## Composer 
 - 套件管理器
-- 如已經安裝可跳過安裝步驟進到初始化
+- 如已經安裝可跳過安裝步驟進到初始化/laravel安裝
+
 ### 安裝（如本機已安裝可跳過)
 ```bash
 curl -sS https://getcomposer.org/installer | php
@@ -11,21 +19,9 @@ sudo mv composer.phar /usr/local/bin/composer
 # 確認安裝成功(看版號)
 composer -v
 ```
-### 初始化 init
-```bash
-# 開始初始化專案
-composer init
-# 輸入 package name <vendor>/<name> ex.lynn/test
-# desc
-# Author
-# minimum-stability 對於依賴的穩定性要求
-# Package Type 先選 project
-```
-#### minimum-stability 選項
-- stable：僅允許穩定版本的套件。適合生產環境。
-- beta：允許穩定和測試版的套件。適合測試環境。
-- alpha：允許穩定、測試版和開發版的套件。適合開發環境。
-- dev：允許所有版本的套件，包括開發中的版本。適合開發環境。
+- 如果要使用 laravel 直接安裝 [Laravel](#laravel)
+- 如果沒有用框架請自己[初始化composer.json](#初始化-init)
+---
 ## Laravel
 ### 安裝 10.*
 ```bash
@@ -90,10 +86,27 @@ php artisan make:command CreateViewCommand
 ```
 - 將要做的事寫在裡面
 - 在 app/Console/Kernel.php 文件中註冊命令
-
+---
 ## 元Java開發者小提醒（自己）
 - php 變數前面要加 $
 - php 陣列用 => 來指定 key
 - -> 相當於 Java 的 .
   - 呼叫它的方法
   - 呼叫它的屬性
+
+---
+### 初始化 init
+```bash
+# 開始初始化專案
+composer init
+# 輸入 package name <vendor>/<name> ex.lynn/test
+# desc
+# Author
+# minimum-stability 對於依賴的穩定性要求
+# Package Type 先選 project
+```
+#### minimum-stability 選項
+- stable：僅允許穩定版本的套件。適合生產環境。
+- beta：允許穩定和測試版的套件。適合測試環境。
+- alpha：允許穩定、測試版和開發版的套件。適合開發環境。
+- dev：允許所有版本的套件，包括開發中的版本。適合開發環境。
