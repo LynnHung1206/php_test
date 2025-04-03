@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\RedisDemoController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +21,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// test redis
 Route::get('/redis-demo', [RedisDemoController::class, 'index']);
+// test post
 Route::post('/hello', [HelloController::class, 'testPost']);
+// test validation
+Route::post('/users', [UserController::class, 'store']);

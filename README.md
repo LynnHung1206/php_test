@@ -42,6 +42,9 @@ php artisan serve # 啟動 laravel 內建 server
 - 建立 route 
   - view -> routes/web.php
   - api -> routes/api.php， 且api 路徑預設帶 /api
+    - 打 api 時，記得加上，不然驗證錯誤時會自動 redirect 回首頁
+      - Content-Type: application/json
+      - Accept: application/json
 
 - view
   - 除了上述外，到 resources/views 建立 xxx.blade.php
