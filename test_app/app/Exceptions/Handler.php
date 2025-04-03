@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -34,6 +35,15 @@ class Handler extends ExceptionHandler
                     'message' => '請求參數驗證失敗',
                     'errors' => $e->errors(),
                 ], 400);
+            }
+        });
+
+        $this->renderable(function (NotFoundHttpException $e, $request) {
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => '找不到該路徑',
+                ], 404);
             }
         });
         $this->reportable(function (Throwable $e) {
