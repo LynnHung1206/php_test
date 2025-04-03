@@ -56,23 +56,21 @@ php artisan serve # 啟動 laravel 內建 server
   ```
 - 新增環境變數
   ```properties
+  # MariaDb
+  DB_CONNECTION=mysql
+  DB_HOST=mariadb
+  DB_PORT=3306
+  DB_DATABASE=mydb
+  DB_USERNAME=myuser
+  DB_PASSWORD=mypass
+  
+  # Redis 
+  REDIS_HOST=localHost
+  REDIS_PASSWORD=null
+  REDIS_PORT=6379
   REDIS_CLIENT=predis
   ```
-```properties
-# MariaDb
-DB_CONNECTION=mysql
-DB_HOST=mariadb
-DB_PORT=3306
-DB_DATABASE=mydb
-DB_USERNAME=myuser
-DB_PASSWORD=mypass
-
-# Redis 
-REDIS_HOST=localHost
-REDIS_PASSWORD=null
-REDIS_PORT=6379
-```
-
+- redis 包成一包 util 比較好操作詳看 [CacheUtil](test_app/app/Utils/CacheUtil.php)
 ---
 ## local 開發小技巧 自增命令
 ```bash
