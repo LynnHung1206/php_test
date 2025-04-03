@@ -52,6 +52,9 @@ php artisan serve # 啟動 laravel 內建 server
 ### 錯誤處理
 - 錯誤處理在 [Handler.php](test_app/app/Exceptions/Handler.php)
 - 參數失敗預設會 redirect 回首頁，且 status code default 422
+### Middleware
+- 中介層，主要用來處理請求和回應的過程
+- 類似 Java 的 filter
 ---
 ## redis & mariadb
 - 建立 docker-compose.yml 直接拉起來即可
@@ -86,4 +89,9 @@ php artisan make:command CreateViewCommand
 - 將要做的事寫在裡面
 - 在 app/Console/Kernel.php 文件中註冊命令
 
-
+## 元Java開發者小提醒（自己）
+- php 變數前面要加 $
+- php 陣列用 => 來指定 key
+- -> 相當於 Java 的 .
+  - 呼叫它的方法
+  - 呼叫它的屬性
