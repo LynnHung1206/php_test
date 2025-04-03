@@ -16,7 +16,7 @@ class RedisDemoController extends Controller
 //        sleep(11); 測試ttl作用
         $value = CacheUtil::get($key, "nothing");
         return response()->json([
-            'message' => 'Counter updated',
+            'message' => 'test get redis data',
             'counter' => $value
         ]);
     }
