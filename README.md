@@ -55,6 +55,8 @@ php artisan serve # 啟動 laravel 內建 server
 ### Middleware
 - 中介層，主要用來處理請求和回應的過程
 - 類似 Java 的 filter
+- 需要在 [Kernel.php](test_app/app/Http/Kernel.php) 中註冊
+- 以及在 routes/api.php 中使用
 ---
 ## redis & mariadb
 - 建立 docker-compose.yml 直接拉起來即可
