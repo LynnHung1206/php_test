@@ -18,6 +18,13 @@ class HelloController extends Controller
         return view('hello', ['name' => $name]);
     }
 
+    public function testGet()
+    {
+        return response()->json([
+            'message' => "hi hi"
+        ]);
+    }
+
     public function testPost(Request $request)
     {
         $data = $request->json()->all();

@@ -25,6 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/redis-demo', [RedisDemoController::class, 'index']);
 // test post
 Route::post('/hello', [HelloController::class, 'testPost']);
+Route::get('/hello', [HelloController::class, 'testPost']);
 // test validation
 Route::middleware('token.auth')->group(function () {
     Route::resource('users', UserController::class);

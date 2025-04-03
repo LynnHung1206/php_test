@@ -16,4 +16,13 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function test_user_can_be_listed()
+    {
+        $response = $this->get('/api/hello');
+
+        $response->assertStatus(200);
+
+    }
+
 }

@@ -84,6 +84,30 @@ php artisan serve # 啟動 laravel 內建 server
             // 其他 create/update/delete 方法
         }
     ```
+    
+### 測試
+> 分為功能測試與單元測試 (Feature Test & Unit Test)
+```bash
+php artisan make:test ExampleUnitTest --unit # 單元測試
+php artisan make:test UserApiTest # 功能測試
+
+```
+- 單元測試
+  - 測試單一 function / method 的邏輯是否正確，通常不會依賴外部資源（像資料庫、路由、API）。
+  - 不需要 HTTP 請求、資料庫等外部依賴
+  - 場景
+    - 你要測試一個計算邏輯、字串處理、Service class、Repository 方法等
+    - 通常會使用 Mock 物件來模擬依賴的行為
+- 功能測試 / 整合測試
+  - 模擬一整個應用流程是否正確運作，例如：路由 → 控制器 → 中介層 → 資料庫。
+  - 模擬實際 HTTP 請求 ($this->get(), $this->post())
+  - 使用 Laravel 的 Application Container
+  - 可以跑資料庫（常用 RefreshDatabase trait）
+  - 效能比單元測試慢，但更貼近實際使用
+  - 場景
+    - 測試 API 回傳是否正確
+    - 驗證表單送出是否會驗證失敗
+    - 檢查使用者登入後才能做某些事
 ---
 ## redis & mariadb
 - 建立 docker-compose.yml 直接拉起來即可

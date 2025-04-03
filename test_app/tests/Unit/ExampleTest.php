@@ -13,4 +13,9 @@ class ExampleTest extends TestCase
     {
         $this->assertTrue(true);
     }
+    public function test_sum_two_numbers()
+    {
+        $this->assertEquals(4, 2 + 2);
+    }
+
 }
