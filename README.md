@@ -87,7 +87,11 @@ php artisan serve # 啟動 laravel 內建 server
     
 ### 測試
 > 分為功能測試與單元測試 (Feature Test & Unit Test)
+
+> 檢查一下 composer.json ->"phpunit/phpunit": "^10.0"
+
 ```bash
+php artisan test # 測試所有測試
 php artisan make:test ExampleUnitTest --unit # 單元測試
 php artisan make:test UserApiTest # 功能測試
 
