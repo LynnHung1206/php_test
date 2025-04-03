@@ -27,5 +27,5 @@ Route::get('/redis-demo', [RedisDemoController::class, 'index']);
 Route::post('/hello', [HelloController::class, 'testPost']);
 // test validation
 Route::middleware('token.auth')->group(function () {
-    Route::post('/users', [UserController::class, 'store']);
+    Route::resource('users', UserController::class);
 });
