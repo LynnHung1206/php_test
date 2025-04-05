@@ -16,7 +16,7 @@ SHOW VARIABLES LIKE 'default_storage_engine';
 
 -- 創建用戶表
 CREATE TABLE IF NOT EXISTS users (
-                                     id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+    id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     email_verified_at TIMESTAMP NULL DEFAULT NULL,
@@ -27,7 +27,8 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMP NULL DEFAULT NOW(),
     updated_at TIMESTAMP NULL DEFAULT NULL,
     PRIMARY KEY (id),
-    UNIQUE KEY users_email_unique (email)
+    UNIQUE KEY users_email_unique (email),
+    UNIQUE KEY users_phone_unique (phone),
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 插入測試數據
