@@ -10,6 +10,7 @@
 ## Composer 
 - 套件管理器
 - 如已經安裝可跳過安裝步驟進到初始化/laravel安裝
+- 拉下來的專案 有可能要做 `composer install`
 
 ### 安裝（如本機已安裝可跳過)
 ```bash

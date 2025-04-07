@@ -13,7 +13,7 @@ class RedisDemoController extends Controller
     {
         $key = "hi";
         CacheUtil::set($key, "hihihi", 10);
-//        sleep(11); 測試ttl作用
+        //sleep(11); //測試ttl作用
         $value = CacheUtil::get($key, "nothing");
         return response()->json([
             'message' => 'test get redis data',
