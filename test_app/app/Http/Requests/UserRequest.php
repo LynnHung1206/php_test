@@ -24,7 +24,7 @@ class UserRequest extends FormRequest
         return [
             // laravel 官網可以找到各式各樣的驗證規則
             'name' => 'required|string|max:255',
-            'email' => 'required|email',
+            'email' => 'required|email:rfc,dns',
             'age' => 'required|integer|min:18',
             'phone'=>'nullable|regex:/^([0-9\s\-\+\(\)]+)$/',
         ];
