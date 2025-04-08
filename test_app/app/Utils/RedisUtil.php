@@ -4,7 +4,7 @@ namespace App\Utils;
 
 use Illuminate\Support\Facades\Redis;
 
-class CacheUtil
+class RedisUtil
 {
     public static function set($key, $value, $ttl = 3600)
     {

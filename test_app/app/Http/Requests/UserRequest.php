@@ -22,6 +22,7 @@ class UserRequest extends FormRequest
     public function rules(): array
     {
         return [
+            // laravel 官網可以找到各式各樣的驗證規則
             'name' => 'required|string|max:255',
             'email' => 'required|email',
             'age' => 'required|integer|min:18',

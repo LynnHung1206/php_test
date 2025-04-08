@@ -1,4 +1,4 @@
-# Start php Test
+# Start php Practice
 ---
 - [composer](#composer-)
 - [Laravel](#laravel)
@@ -6,6 +6,9 @@
 - [local 開發小技巧 自增命令](#local-開發小技巧-自增命令)
 - [元Java開發者小提醒（自己）](#元java開發者小提醒自己)
 ---
+> todo list
+> Http::post(); 
+  httobinorg 測試http  
 
 ## Composer 
 - 套件管理器
@@ -137,7 +140,7 @@ php artisan make:test UserApiTest # 功能測試
   REDIS_PORT=6379
   REDIS_CLIENT=predis
   ```
-- redis 包成一包 util 比較好操作詳看 [CacheUtil](test_app/app/Utils/CacheUtil.php)
+- redis 包成一包 util 比較好操作詳看 [CacheUtil](test_app/app/Utils/RedisUtil.php)
 
 #### Mariadb 注意事項
 - 設定 ENGINE、CHARSET 與 COLLATE 可確保資料表使用支援交易的 InnoDB 引擎，
