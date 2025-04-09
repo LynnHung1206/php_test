@@ -30,3 +30,12 @@ Route::get('/hello', [HelloController::class, 'testPost']);
 Route::middleware('token.auth')->group(function () {
     Route::resource('users', UserController::class);
 });
+
+Route::post('/basicAuth', [\App\Http\Controllers\AuthController::class, 'testBasicAuth']);
+Route::get('/bearerAuth', [\App\Http\Controllers\AuthController::class, 'testBearerAuth']);
+
+Route::post('testHttpBinGet', [\App\Http\Controllers\TestHttpBinController::class, 'testHttpBinGet']);
+Route::post('testHttpBinPost', [\App\Http\Controllers\TestHttpBinController::class, 'testHttpBinPost']);
+Route::post('testHttpBinDelete', [\App\Http\Controllers\TestHttpBinController::class, 'testHttpBinDelete']);
+Route::post('testHttpBinPut', [\App\Http\Controllers\TestHttpBinController::class, 'testHttpBinPut']);
+Route::post('testHttpBinPatch', [\App\Http\Controllers\TestHttpBinController::class, 'testPatch']);
