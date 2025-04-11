@@ -31,6 +31,7 @@ Route::middleware('token.auth')->group(function () {
     Route::resource('users', UserController::class);
 });
 
+// Http
 Route::post('/basicAuth', [\App\Http\Controllers\AuthController::class, 'testBasicAuth']);
 Route::get('/bearerAuth', [\App\Http\Controllers\AuthController::class, 'testBearerAuth']);
 
